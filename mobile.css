@@ -19,7 +19,7 @@ div.main {
 
 #presenters, #vote {
     position: absolute;
-    top: 12%;
+    /*top: 12%;*/
     display: none;
 }
 

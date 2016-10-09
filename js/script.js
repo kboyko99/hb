@@ -14,7 +14,8 @@ function changeContent() {
     else
         vote();
 }
-$('.change-content').click(function () {
+$('.change-content').click(function (e) {
+e.preventDefault;
     changeContent();
 });
 document.getElementById("like").addEventListener('touchstart', function (e) {
