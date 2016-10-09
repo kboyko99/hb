@@ -12,7 +12,7 @@ $( document ).ready(function() {
     var token = "";
     $.ajax({
         method: "POST",
-        url: "https://pure-everglades-50833.herokuapp.com/api/v1/plus"
+        url: "https://pure-everglades-50833.herokuapp.com/api/v1/get-token"
     })
     .done(function (tok) {
         token = tok;
@@ -160,7 +160,7 @@ function like() {
 
     })
     .done(function (msg) {
-        
+
     });
 }
 $('#dislike').data('ts', new Date().getTime());
