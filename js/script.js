@@ -9,6 +9,14 @@
 // // document.getElementById("dislike").style = 'bottom:' + margins + 'px';
 // console.log(margins);
 $( document ).ready(function() {
+    var token = "";
+    $.ajax({
+        method: "POST",
+        url: "https://pure-everglades-50833.herokuapp.com/api/v1/plus"
+    })
+    .done(function (tok) {
+        token = tok;
+    });
 
 function changeContent() {
     if ($("#two").is(':hidden'))
@@ -147,10 +155,12 @@ function like() {
 
     $.ajax({
         method: "POST",
-        url: "https://pure-everglades-50833.herokuapp.com/api/v1/plus"
+        url: "https://pure-everglades-50833.herokuapp.com/api/v1/plus",
+        data: {"token": token}
+
     })
     .done(function (msg) {
-
+        
     });
 }
 $('#dislike').data('ts', new Date().getTime());
@@ -165,7 +175,8 @@ function dislike() {
 
     $.ajax({
         method: "POST",
-        url: "https://pure-everglades-50833.herokuapp.com/api/v1/minus"
+        url: "https://pure-everglades-50833.herokuapp.com/api/v1/minus",
+        data: {"token": token}
     }).done(function (msg) {
 
     });
