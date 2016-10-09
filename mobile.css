@@ -45,7 +45,9 @@ div.main {
     position: relative;
     top: 5%;
 }
-
+.change-content{
+    z-index: 2;
+}
 #one {
     text-align: center;
     margin-top: 10vh;
