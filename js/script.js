@@ -72,7 +72,7 @@ function showList() {
     $('#likes').hide();
     $("#presenters").show();
     $("#one").hide();
-    $('#two').toggle();
+    $('#two').show();
     $("#showPresenters").hide();
     $("#currentSpeaker").hide();    
     $("#vote").show();
@@ -80,8 +80,7 @@ function showList() {
     $.ajax({
         method: "GET",
         url: requrl + "list"
-    })
-        .done(function (msg) {
+    }).done(function (msg) {
             // var htmlka = '';
             for (var i = 0; i < msg.data[0].list.length; i++) {
                 // var style ='';
