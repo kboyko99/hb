@@ -20,16 +20,27 @@ $('.change-content').click(function (e) {
     //  e.preventDefault();
     changeContent();
 });
+
+function disablefor250(but){
+    but.addClass('disabled')
+    setTimeout(function(){
+        but.removeClass('disabled');
+    });
+}
 document.getElementById("like").addEventListener('touchstart', function (e) {
     this.src = "images/mhw-b-plus-2.png";
 }, false);
-document.getElementById("like").addEventListener('touchend', function (e) {
+document.getElementById("like").addEventListener('touchend', function (e) {   
+    disablefor250($(this));
+
     this.src = "images/mhw-b-plus-1.png"
 }, false);
 document.getElementById("dislike").addEventListener('touchstart', function (e) {
     this.src = "images/mhw-b-minus-2.png";
 }, false);
 document.getElementById("dislike").addEventListener('touchend', function (e) {
+        disablefor250($(this));
+
     this.src = "images/mhw-b-minus-1.png"
 }, false);
 
@@ -128,7 +139,12 @@ function vote() {
 }
 
 function like() {
-    window.navigator.vibrate(100);
+   if ( new Date().getTime() - $(this).data('ts') < 777)
+        return;
+
+    $(this).data('ts', new Date().getTime());
+        window.navigator.vibrate(100);
+
     $.ajax({
         method: "POST",
         url: "https://pure-everglades-50833.herokuapp.com/api/v1/plus"
@@ -137,9 +153,16 @@ function like() {
 
     });
 }
-
+$('#dislike').data('ts', new Date().getTime());
+$('#like').data('ts', new Date().getTime());
 function dislike() {
+    if ( new Date().getTime() - $(this).data('ts') < 777)
+        return;
+
+    $(this).data('ts', new Date().getTime());
+
     window.navigator.vibrate(200);
+
     $.ajax({
         method: "POST",
         url: "https://pure-everglades-50833.herokuapp.com/api/v1/minus"
