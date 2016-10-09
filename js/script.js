@@ -11,14 +11,10 @@
 $( document ).ready(function() {
 
 function changeContent() {
-    if ($("#two").is(':hidden')){
+    if ($("#two").is(':hidden'))
         showList();
-        alert('to page 2');
-    }
-    else{
-        alert('to page 1')
+    else
         vote();
-    }
 }
 $('.change-content').click(function (e) {
     //  e.preventDefault();
@@ -114,7 +110,6 @@ function showList() {
 }
 
 function vote() {
-    alert('clicked');
     $("#one").show();
     $("#two").hide();
     $("#showPresenters").show();
