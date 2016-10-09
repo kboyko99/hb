@@ -1,13 +1,3 @@
-// var height = window.innerHeight;
-// var width = window.innerWidth;
-// var radius = (width * 0.4) / 2;
-// var divHeight = height * 0.75;
-// var margins = (divHeight - radius * 4) / 3;
-// var topMargin = margins + height * 0.25;
-// console.log(topMargin);
-// // document.getElementById("like").style = 'top:' + topMargin + 'px';
-// // document.getElementById("dislike").style = 'bottom:' + margins + 'px';
-// console.log(margins);
 $( document ).ready(function() {
     var token = "";
     $.ajax({
@@ -15,7 +5,7 @@ $( document ).ready(function() {
         url: "https://pure-everglades-50833.herokuapp.com/api/v1/get-token"
     })
     .done(function (tok) {
-        token = tok;
+        token = tok.token;
     });
 
 function changeContent() {
@@ -72,7 +62,6 @@ function getCurrentSpeaker() {
                 if (spName.length >= 20) {
                     spName = spName.substring(0, 20) + "...";
                 }
-
                 document.getElementById("project").innerHTML = prName.toUpperCase();
                 document.getElementById("speaker").innerHTML = spName.toUpperCase();
                 document.getElementById('currentLikesAmount').innerHTML = "+"+ msg.data[0].list[i].like;
@@ -156,7 +145,9 @@ function like() {
     $.ajax({
         method: "POST",
         url: "https://pure-everglades-50833.herokuapp.com/api/v1/plus",
-        data: {"token": token}
+        contentType: 'application/json',
+        data: JSON.stringify({
+            token:token})
 
     })
     .done(function (msg) {
@@ -175,8 +166,10 @@ function dislike() {
 
     $.ajax({
         method: "POST",
-        url: "https://pure-everglades-50833.herokuapp.com/api/v1/minus",
-        data: {"token": token}
+        url: "https://pure-everglades-50833.herokuapp.com/api/v1/minus",        
+        contentType: 'application/json',
+        data: JSON.stringify({
+            token:token})
     }).done(function (msg) {
 
     });
