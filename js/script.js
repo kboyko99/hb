@@ -114,7 +114,6 @@ function showList() {
 }
 
 function vote() {
-    window.navigator.vibrate(100);
     alert('clicked');
     $("#one").show();
     $("#two").hide();
@@ -123,6 +122,7 @@ function vote() {
     $('#likes').show();
     $("#currentSpeaker").show();
     $('#vote').hide();
+    window.navigator.vibrate(100);
     getCurrentSpeaker();
 }
 
