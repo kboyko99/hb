@@ -49,9 +49,11 @@ div.main {
 }
 #currentLikesAmount{
     left: 5vh;
+    color: green;
 }
 #currentDislikesAmount{
     right: 5vh;
+    color: red;
 }
 .navbar {
     position: relative;

@@ -58,13 +58,10 @@ function getCurrentSpeaker() {
                 document.getElementById("speaker").innerHTML = spName.toUpperCase();
                 document.getElementById('currentLikesAmount').innerHTML = "+"+ msg.data[0].list[i].like;
                 document.getElementById('currentDislikesAmount').innerHTML = "-"+msg.data[0].list[i].dislike;
-
-                document.getElementById('currentLikesAmount').style.color = "green";
-                document.getElementById('currentDislikesAmount').style.color = "red";
-
                 return;
             }
         }
+        
         // window.navigator.vibrate(200);
         document.getElementById("project").innerHTML = "PLEASE WAIT:)";
     });
