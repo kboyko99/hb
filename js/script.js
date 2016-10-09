@@ -72,16 +72,27 @@ function showList() {
     $('#likes').hide();
     $("#presenters").show();
     $("#one").hide();
+    $('#two').toggle();
     $("#showPresenters").hide();
     $("#currentSpeaker").hide();    
     $("#vote").show();
-    var table = $("#presenters");
+    var table = document.getElementById("presenters");
     $.ajax({
         method: "GET",
         url: requrl + "list"
     })
         .done(function (msg) {
+            // var htmlka = '';
             for (var i = 0; i < msg.data[0].list.length; i++) {
+                // var style ='';
+                // if (msg.data[0].list[i].active) { style =  'style="background-color: rgba(0, 204, 0, 0.2);"' }
+                // htmlka +='<tr ' + style+'>'+
+                //     '<td class="cell" style="width: 70%;">'+
+                //     '<b>'+msg.data[0].list[i].project_name+'</b>'+
+                //     '<br>'+msg.data[0].list[i].speaker_name+'</td>'+
+                //     '<td class="likeSymb"><span>+'+msg.data[0].list[i].dislike+'</span>'+
+                //     '<br><span>-'+msg.data[0].list[i].dislike+'</span></td>'+
+                //     '</tr>';
                 var row = table.insertRow(i);
                 var projectname = row.insertCell(0);
                 var likes = row.insertCell(1);
@@ -94,6 +105,7 @@ function showList() {
                     row.style = "background-color: rgba(0, 204, 0, 0.2)"
                 }
             }
+            // table.html(htmlka)
         });
 }
 
