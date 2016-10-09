@@ -61,10 +61,11 @@ function getCurrentSpeaker() {
         // window.navigator.vibrate(200);
         document.getElementById("project").innerHTML = "PLEASE WAIT:)";
     });
+    setTimeout(1000, getCurrentSpeaker());
 }
 
 getCurrentSpeaker();
-setInterval(getCurrentSpeaker(), 1000);
+
 
 function showList() {
     // window.navigator.vibrate(200);
