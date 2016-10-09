@@ -8,6 +8,8 @@
 // // document.getElementById("like").style = 'top:' + topMargin + 'px';
 // // document.getElementById("dislike").style = 'bottom:' + margins + 'px';
 // console.log(margins);
+$( document ).ready(function() {
+
 function changeContent() {
     if ($("#two").css('display') == 'none')
         showList();
@@ -68,12 +70,11 @@ function showList() {
     // window.navigator.vibrate(200);
     $('table').empty();
     $('#likes').hide();
-    // document.getElementById("likes").style = "display:none";
-    document.getElementById("one").style = "display:none";
-    document.getElementById("two").style = "display:block";
-    document.getElementById("showPresenters").style = "display:none";
-    document.getElementById("currentSpeaker").style = "display:none";
-    document.getElementById("vote").style = "display:block";
+    $("#two").show();
+    $("#one").hide();
+    $("#showPresenters").hide();
+    $("#currentSpeaker").hide();    
+    $("#vote").show();
     var table = document.getElementById("presenters");
     table.style = "display:block";
     $.ajax({
@@ -99,14 +100,13 @@ function showList() {
 
 function vote() {
     window.navigator.vibrate(100);
-    document.getElementById("one").style = "display:block";
-    document.getElementById("two").style = "display:none";
-    document.getElementById("presenters").style = "display:none";
-    document.getElementById("showPresenters").style = "display:block";
-    $('#likes').hide();
-    // document.getElementById("likes").style = "display:block";
-    document.getElementById("currentSpeaker").style = "display:block";
-    document.getElementById("vote").style = "display:none";
+    $("#one").show();
+    $("#two").hide();
+    $("#one").show();
+    $("#two").hide();
+    $('#likes').show();
+    $("#currentSpeaker").show();
+    $('#vote').hide();
     getCurrentSpeaker();
 }
 
@@ -168,3 +168,4 @@ function rotate(el, degs) {
     };
     $(el).css(styles);
 }
+});

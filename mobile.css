@@ -62,6 +62,7 @@ div.main {
 
 #showPresenters, #vote {
     position: absolute;
+    cursor: pointer;
     right: 7%;
     width: auto;
     background-color: rgba(255, 255, 255, 0);
@@ -130,7 +131,7 @@ tr:nth-child(even) {
     color: black;
 }
 
-input[type=image]:active, :focus {
+input[type=image]:active, :focus, button {
     outline: none;
 }
 
