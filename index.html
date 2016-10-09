@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<style type="text/css">
+	body{
+		background-color:  grey;
+	}
+	.presList{
+		position: fixed;
+		background-color: white;
+		border-radius: 20px;
+		top: 20%;
+		left: 20%;
+		width: 60%;
+		min-height: 60%;
+		height: auto;
+	}
+	table{
+		padding: 30px;
+	}
+	.head{
+		position: relative;
+		left: 5%;
+	}
+	th, .cell{
+		width: 20%;
+		padding: 10px;
+	}
+	.cell{
+		position: relative;
+		left: 10%;
+	}
+</style>
+</head>
+
+<body>
+<div class='main'>
+	<div class="presList">
+	  	<table id='presentors'> 
+	  		<b><tr id='head'>
+	  			<th class="head">Project name</th>
+	  			<th class="head">Presentor</th>
+	  			<th class="head">Likes</th>
+	  			<th class="head">Dislikes</th>
+	  		</tr></b>
+	  	</table>
+	</div> 
+</div>
+<script type="text/javascript">
+var mainurl = "https://pure-everglades-50833.herokuapp.com/api/v1/";
+
+function showList(){
+	$.ajax({
+		method: "GET",
+		url: mainurl+"list"
+	})
+	.done(function( msg ) {
+		var table = document.getElementById("presentors");
+		for(var i = 1; i<msg.data[0].list.length; i++){
+			var row = table.insertRow(i);
+			var projectname = row.insertCell(0);
+			var speaker = row.insertCell(1);
+			var like = row.insertCell(2);
+			var dislike = row.insertCell(2);
+			projectname.className = 'cell';
+			speaker.className = 'cell';
+			like.className = 'cell';
+			dislike.className = 'cell';
+			projectname.innerHTML = msg.data[0].list[i].project_name;
+		    speaker.innerHTML = msg.data[0].list[i].speaker_name;
+		    like.innerHTML = msg.data[0].list[i].like;
+		    dislike.innerHTML = msg.data[0].list[i].dislike;
+		}
+	});
+};
+
+showList();
+</script>
+</body>
+</html>
