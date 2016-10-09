@@ -70,7 +70,7 @@ function showList() {
     // window.navigator.vibrate(200);
     $('table').empty();
     $('#likes').hide();
-    $("#two").show();
+    $("#presenters").show();
     $("#one").hide();
     $("#showPresenters").hide();
     $("#currentSpeaker").hide();    
@@ -102,8 +102,8 @@ function vote() {
     window.navigator.vibrate(100);
     $("#one").show();
     $("#two").hide();
-    $("#one").show();
-    $("#two").hide();
+    $("#showPresenters").show();
+    $("#presenters").hide();
     $('#likes').show();
     $("#currentSpeaker").show();
     $('#vote').hide();
