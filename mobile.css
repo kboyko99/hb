@@ -154,7 +154,7 @@ button:focus, button:hover, button:active ,button:visited{
     user-select: none;
     outline: none;
 }
-.footer{
+#vk_contact_us{
     position: relative;
     width: 125px;
     margin: 20px auto;
