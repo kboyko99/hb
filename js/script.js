@@ -53,8 +53,15 @@ function getCurrentSpeaker() {
                 if (spName.length >= 20) {
                     spName = spName.substring(0, 20) + "...";
                 }
+
                 document.getElementById("project").innerHTML = prName.toUpperCase();
                 document.getElementById("speaker").innerHTML = spName.toUpperCase();
+                document.getElementById('currentLikesAmount').innerHTML = "+"+ msg.data[0].list[i].like;
+                document.getElementById('currentDislikesAmount').innerHTML = "-"+msg.data[0].list[i].dislike;
+
+                document.getElementById('currentLikesAmount').style.color = "green";
+                document.getElementById('currentDislikesAmount').style.color = "red";
+
                 return;
             }
         }
@@ -97,7 +104,8 @@ function showList() {
                 var projectname = row.insertCell(0);
                 var likes = row.insertCell(1);
                 projectname.innerHTML = "<b>" + msg.data[0].list[i].project_name + "</b>" + "<br>" + msg.data[0].list[i].speaker_name;
-                likes.innerHTML = "<span>+" + msg.data[0].list[i].like + "</span><br><span>-" + msg.data[0].list[i].dislike + "</span>";
+                if(msg.data[0].list[i].like>0&&msg.data[0].list[i].dislike>0)
+                    likes.innerHTML = "<span>+" + msg.data[0].list[i].like + "</span><br><span>-" + msg.data[0].list[i].dislike + "</span>";
                 projectname.className = 'cell';
                 likes.className = 'likeSymb';
                 projectname.style = "width: 70%";

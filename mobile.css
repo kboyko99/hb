@@ -40,7 +40,19 @@ div.main {
     right: 40%;
     width: 20%;
 }
+#currentLikesAmount, #currentDislikesAmount{
+    position: fixed;
+    bottom: 5vh;
+    font-size: 20px;
+    font-family: "pantonbold", sans-serif;
 
+}
+#currentLikesAmount{
+    left: 5vh;
+}
+#currentDislikesAmount{
+    right: 5vh;
+}
 .navbar {
     position: relative;
     top: 5%;
