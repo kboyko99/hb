@@ -111,6 +111,7 @@ function showList() {
 
 function vote() {
     window.navigator.vibrate(100);
+    alert('clicked');
     $("#one").show();
     $("#two").hide();
     $("#showPresenters").show();
