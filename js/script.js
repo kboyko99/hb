@@ -16,7 +16,7 @@ function changeContent() {
         alert('to page 2');
     }
     else{
-        alert('to page 1');
+        alert('to page 1')
         vote();
     }
 }
@@ -65,7 +65,7 @@ function getCurrentSpeaker() {
         // window.navigator.vibrate(200);
         document.getElementById("project").innerHTML = "PLEASE WAIT:)";
     });
-    setTimeout(1000, getCurrentSpeaker());
+    setTimeout(getCurrentSpeaker, 1000);
 }
 
 getCurrentSpeaker();
