@@ -16,6 +16,7 @@ function changeContent() {
 }
 $('.change-content').click(function (e) {
 e.preventDefault;
+alert('was clicked');
     changeContent();
 });
 document.getElementById("like").addEventListener('touchstart', function (e) {
