@@ -11,7 +11,7 @@
 $( document ).ready(function() {
 
 function changeContent() {
-    if ($("#two").is(':visible')){
+    if ($("#two").is(':hidden')){
         showList();
         alert('to page 2');
     }
