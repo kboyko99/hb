@@ -11,13 +11,16 @@
 $( document ).ready(function() {
 
 function changeContent() {
-    if ($("#two").css('display') == 'none')
+    if ($("#two").is(':visible')){
         showList();
-    else
+        alert('to page 2');
+    }
+    else{
+        alert('to page 1');
         vote();
+    }
 }
 $('.change-content').click(function (e) {
-    alert('ok');
     //  e.preventDefault();
     changeContent();
 });
