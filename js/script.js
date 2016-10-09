@@ -75,8 +75,7 @@ function showList() {
     $("#showPresenters").hide();
     $("#currentSpeaker").hide();    
     $("#vote").show();
-    var table = document.getElementById("presenters");
-    table.style = "display:block";
+    var table = $("#presenters");
     $.ajax({
         method: "GET",
         url: requrl + "list"
