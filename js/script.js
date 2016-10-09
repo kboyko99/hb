@@ -17,7 +17,8 @@ function changeContent() {
         vote();
 }
 $('.change-content').click(function (e) {
-    e.preventDefault;
+    alert('ok');
+    //  e.preventDefault();
     changeContent();
 });
 document.getElementById("like").addEventListener('touchstart', function (e) {
